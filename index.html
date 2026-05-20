@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Task 2 - Colegio San Ignacio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --si-blue: #004a99;
+            --si-blue-dark: #003366;
+            --bg: #f5f7fa;
+            --text: #2d3436;
+            --success: #27ae60;
+            --error: #e74c3c;
+            --border: #dcdde1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .main-card {
+            width: 100%;
+            max-width: 850px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Encabezado solicitado: Cuadro azul, letras blancas */
+        header {
+            background-color: var(--si-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--si-blue-dark);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+        }
+
+        .container { padding: 30px; }
+
+        /* Inputs de Identificación */
+        .identity-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .input-group { display: flex; flex-direction: column; }
+        .input-group label { font-size: 0.8rem; font-weight: 600; margin-bottom: 5px; color: var(--si-blue); }
+
+        input[type="text"] {
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus { outline: none; border-color: var(--si-blue); }
+
+        /* Sección de Pregunta y Ejemplo */
+        .instruction-box {
+            background-color: #f8fbff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--si-blue);
+            margin-bottom: 25px;
+        }
+
+        .question { font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; color: #000; }
+        
+        .example-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #57606f;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px dashed var(--border);
+        }
+
+        /* Área de Escritura */
+        textarea {
+            width: 100%;
+            height: 350px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            resize: vertical;
+            margin-bottom: 8px;
+        }
+
+        textarea:focus { outline: none; border-color: var(--si-blue); }
+
+        .status-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .word-count { color: var(--error); }
+        .word-count.ready { color: var(--success); }
+
+        /* Botones */
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr;
+            gap: 12px;
+        }
+
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-save { background: #e9ecef; color: #495057; }
+        .btn-resume { background: #e9ecef; color: #495057; }
+        .btn-download { background: var(--si-blue); color: white; }
+
+        button:hover { filter: brightness(0.9); transform: translateY(-1px); }
+        .btn-download:hover { box-shadow: 0 4px 12px rgba(0,74,153,0.2); }
+
+        @media (max-width: 600px) {
+            .identity-row, .button-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <header>
+        <h1>COLEGIO SAN IGNACIO</h1>
+        <p>Writing Task 2 - 8th grades</p>
+    </header>
+
+    <div class="container">
+        <div class="identity-row">
+            <div class="input-group">
+                <label>STUDENT FULL NAME</label>
+                <input type="text" id="name" placeholder="Enter your name..." autocomplete="off">
+            </div>
+            <div class="input-group">
+                <label>CLASS</label>
+                <input type="text" id="course" placeholder="e.g. 8th Grade A B C" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="instruction-box">
+            <p class="question">“In your opinion, why should teenagers include regular exercise in their daily routine, and what benefits do you think are most important for them?"</p>
+            <div class="example-text">
+                <i>Honestly, I didn't like exercise but after watching a documentary about the importance of exercise, I changed my mind. I think teenagers should exercise every day because it makes life way better. When I work out or play sports now, I feel less stressed and more energetic, so school doesn’t feel as exhausting as before. <br><br>
+                It also keeps me healthy and strong, which is important since we spend so much time sitting in class or on our phones. <br><br>
+                In addition, exercising with friends is fun—it helps us stay connected and builds confidence. For me, the best benefits are energy, focus, and feeling good about myself.</i>
+            </div>
+        </div>
+
+        <textarea id="writingArea" placeholder="Type your response here..."></textarea>
+        
+        <div class="status-bar">
+            <span id="wordLabel" class="word-count">Words: <span id="wordCount">0</span> / 80 minimum</span>
+        </div>
+
+        <div class="button-grid">
+            <button class="btn-save" onclick="saveLocal()">Save Progress</button>
+            <button class="btn-resume" onclick="loadLocal()">Resume</button>
+            <button class="btn-download" onclick="exportDoc()">Download (.docx)</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const writingArea = document.getElementById('writingArea');
+    const wordCountSpan = document.getElementById('wordCount');
+    const wordLabel = document.getElementById('wordLabel');
+
+    // Contador de palabras dinámico
+    writingArea.addEventListener('input', () => {
+        const text = writingArea.value.trim();
+        const words = text ? text.split(/\s+/).filter(w => w.length > 0).length : 0;
+        wordCountSpan.innerText = words;
+        
+        if (words >= 80) {
+            wordLabel.classList.add('ready');
+        } else {
+            wordLabel.classList.remove('ready');
+        }
+    });
+
+    // Guardar Localmente
+    function saveLocal() {
+        const data = {
+            name: document.getElementById('name').value,
+            course: document.getElementById('course').value,
+            text: writingArea.value
+        };
+        localStorage.setItem('sanIgnacioDraft', JSON.stringify(data));
+        alert('Progress saved on this computer.');
+    }
+
+    // Recuperar
+    function loadLocal() {
+        const saved = localStorage.getItem('sanIgnacioDraft');
+        if (saved) {
+            const data = JSON.parse(saved);
+            document.getElementById('name').value = data.name || '';
+            document.getElementById('course').value = data.course || '';
+            writingArea.value = data.text || '';
+            writingArea.dispatchEvent(new Event('input'));
+            alert('Work restored successfully.');
+        } else {
+            alert('No saved progress found.');
+        }
+    }
+
+    // Exportar a Word (formato compatible)
+    function exportDoc() {
+        const name = document.getElementById('name').value.trim();
+        const course = document.getElementById('course').value.trim();
+        const content = writingArea.value.trim();
+        const wordCount = wordCountSpan.innerText;
+
+        if (!name || !course || !content) {
+            alert('Please fill in your name, course, and answer before downloading.');
+            return;
+        }
+
+        if (parseInt(wordCount) < 80) {
+            if (!confirm(`Your response has ${wordCount} words. The minimum is 80. Download anyway?`)) return;
+        }
+
+        const fileName = `WritingTask_${name.replace(/\s+/g, '_')}.doc`;
+        
+        // Estructura HTML que Word interpreta como documento oficial
+        const html = `
+            <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+            <head><meta charset='utf-8'></head>
+            <body style="font-family: Arial, sans-serif;">
+                <h1 style="color: #004a99; text-align: center; text-transform: uppercase;">COLEGIO SAN IGNACIO</h1>
+                <p style="text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px;">Writing Task Assessment</p>
+                <div style="margin-top: 20px;">
+                    <p><strong>Student:</strong> ${name}</p>
+                    <p><strong>Course:</strong> ${course}</p>
+                    <p><strong>Word Count:</strong> ${wordCount}</p>
+                    <hr>
+                    <p><strong>Question:</strong> What was the most significant or unexpected discovery you made while researching the relevant aspects of your assigned game?</p>
+                    <br>
+                    <div style="white-space: pre-wrap;">${content}</div>
+                </div>
+            </body>
+            </html>
+        `;
+
+        const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</body>
+</html>
